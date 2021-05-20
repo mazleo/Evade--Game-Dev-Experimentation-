@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
+
     void Update() {
+        float moveSpeed = 25f;
+
+        MovePlayerDependingOnInput(moveSpeed);
+    }
+
+    private void MovePlayerDependingOnInput(float moveSpeed) {
         float horizontalAxis = Input.GetAxis("Horizontal");
         float verticalAxis = Input.GetAxis("Vertical");
-        
-        float moveSpeed = 25f;
 
         float xTranslate = horizontalAxis * Time.deltaTime * moveSpeed;
         float yTranslate = 0;
@@ -15,4 +20,5 @@ public class PlayerMovement : MonoBehaviour {
 
         transform.Translate(xTranslate, yTranslate, zTranslate);
     }
+
 }
